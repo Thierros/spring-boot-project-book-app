@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
         <h1 class="text-center bg-dark text-light py-2">CREATE NEW BOOK</h1>
         <div class="row mt-3">
             <div class="col sm-6">
-                <img class="img-fluid" src="./books123.jpg" alt="">
+                <img class="img-fluid" th:attr="src=@{/resources/static/books123.jpg}" alt="">
             </div>
             <div class="col sm-6 border d-flex flex-column justify-content-center">
 
@@ -34,6 +34,6 @@
                 <div class="btn btn-primary">Create</div>
             </div>
         </div>
-    <div>
+    </div>
 </body>
 </html>

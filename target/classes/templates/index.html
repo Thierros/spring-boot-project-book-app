@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
     <div class="container mt-3">
         <h1 class="text-center bg-dark text-light py-2">ESI BOOK APP</h1>
         <div class="menu">
-            <a class="btn btn-primary mb-2" href="./create.html">New Book</a>
+            <a class="btn btn-primary mb-2" th:href="@{/create}">New Book</a>
         </div>
         <div class="border border-dark overflow-auto p-3" style="height: 500px;">
             <table class="table table-striped">
