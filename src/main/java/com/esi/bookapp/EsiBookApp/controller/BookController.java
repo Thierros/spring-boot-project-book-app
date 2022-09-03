@@ -43,12 +43,14 @@ public class BookController {
     }
 
     @GetMapping("/edite/{id}")
-    public void editBook(@PathVariable("id") int id){
+    public ModelAndView editBook(@PathVariable("id") int id){
 //        utiliser l'id pour editer le Book selectionner
+        return new ModelAndView("create");
     }
 
     @GetMapping("/delete/{id}")
-    public void deleteBook(@PathVariable("id") int id){
+    public ModelAndView deleteBook(@PathVariable("id") int id){
         bs.deleteBook(id);
+        return new ModelAndView("redirect:/");
     }
 }
