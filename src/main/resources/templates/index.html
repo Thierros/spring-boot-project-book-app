@@ -25,110 +25,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                    <tr th:each="book:${book}">
+                        <td> <span th:text="${book.id}"></span></td>
+                      <td> <span th:text="${book.Title}"></span></td>
+                      <td><span th:text="${book.author}"></span></td>
+                      <td><span th:text="${book.Quantity}"></span></td>
                       <td>
                           <div class="btn btn-primary">Edite</div>
                           <div class="btn btn-danger">Delete</div>
                       </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>
-                        <div class="btn btn-primary">Edite</div>
-                        <div class="btn btn-danger">Delete</div>
-                    </td>
-                    </tr>
 
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <div class="btn btn-primary">Edite</div>
-                            <div class="btn btn-danger">Delete</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>
-                          <div class="btn btn-primary">Edite</div>
-                          <div class="btn btn-danger">Delete</div>
-                      </td>
-                      </tr>
-                      
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <div class="btn btn-primary">Edite</div>
-                            <div class="btn btn-danger">Delete</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>
-                          <div class="btn btn-primary">Edite</div>
-                          <div class="btn btn-danger">Delete</div>
-                      </td>
-                      </tr>
-
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <div class="btn btn-primary">Edite</div>
-                            <div class="btn btn-danger">Delete</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>
-                          <div class="btn btn-primary">Edite</div>
-                          <div class="btn btn-danger">Delete</div>
-                      </td>
-                      </tr>
-
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <div class="btn btn-primary">Edite</div>
-                            <div class="btn btn-danger">Delete</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>
-                          <div class="btn btn-primary">Edite</div>
-                          <div class="btn btn-danger">Delete</div>
-                      </td>
-                      </tr>
                     
                   </tbody>
             </table>

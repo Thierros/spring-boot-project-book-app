@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
     la couche epository: interface d'acces au donnees, utilise JPA
 */
 public interface BookRepository extends JpaRepository<Book, Integer> {
+
 }

@@ -8,7 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EsiBookAppApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
+		try {
 		SpringApplication.run(EsiBookAppApplication.class, args);
+		} catch (Exception e) {	e.printStackTrace();
+		}
 	}
 
 	@Override

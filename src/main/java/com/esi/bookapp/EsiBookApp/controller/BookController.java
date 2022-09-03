@@ -26,6 +26,8 @@ public class BookController {
 
     @GetMapping("/")
     public ModelAndView home(Model model){
+        List<Book> listBook=bs.getBooks();
+        model.addAttribute("book",listBook);
         return new ModelAndView ("index");
     }
 
