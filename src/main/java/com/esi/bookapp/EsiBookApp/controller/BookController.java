@@ -24,6 +24,15 @@ public class BookController {
     @Autowired
     private BookService bs;
 
+	
+
+    @PostMapping("/create")
+    public ModelAndView createBook(@ModelAttribute Book book){
+        bs.saveBook(book);
+//        ajouter le code qu'il faut: recuperer les donnees du formulaire puis cree un Book et le stocker dans la base de donees
+        return new ModelAndView("redirect:/");
+    }
+
     @GetMapping("/")
     public ModelAndView home(Model model){
         List<Book> listBook=bs.getBooks();
@@ -36,11 +45,9 @@ public class BookController {
         return bs.getBooks();
     }
 
-    @GetMapping("/create")
-    public ModelAndView createBook(){
-//        ajouter le code qu'il faut: recuperer les donnees du formulaire puis cree un Book et le stocker dans la base de donees
-        return new ModelAndView ("create");
-    }
+  
+
+ 
 
     @GetMapping("/edite/{id}")
     public ModelAndView editBook(@PathVariable("id") int id){

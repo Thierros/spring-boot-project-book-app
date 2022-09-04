@@ -17,11 +17,20 @@ public class BookService {
     @Autowired
     private BookRepository br;
 
+    
+
     public List<Book> getBooks(){
         return br.findAll();
     }
-
+    
     public void deleteBook(int id){
         br.deleteById(id);
     }
+
+    public void saveBook(Book book) {
+        br.save(book);
+	}
+
+  
+
 }
