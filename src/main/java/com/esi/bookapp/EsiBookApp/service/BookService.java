@@ -27,8 +27,14 @@ public class BookService {
         br.deleteById(id);
     }
 
-    public void saveBook(Book book) {
-        br.save(book);
+  
+
+    /**
+     * @param book
+     * @return
+     */
+    public Book saveBook(Book book) {
+		return book = br.save(book);	
 	}
 
   

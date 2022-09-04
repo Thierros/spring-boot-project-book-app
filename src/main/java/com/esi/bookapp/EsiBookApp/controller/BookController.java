@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,13 +27,21 @@ public class BookController {
     private BookService bs;
 
 	
+    @GetMapping("/createBook")
+	public ModelAndView createBook(Model model) {
+		Book book = new Book();
+		model.addAttribute("book", book);
+        return new ModelAndView("create");
+     
+	}
 
-    @PostMapping("/create")
-    public ModelAndView createBook(@ModelAttribute Book book){
-        bs.saveBook(book);
-//        ajouter le code qu'il faut: recuperer les donnees du formulaire puis cree un Book et le stocker dans la base de donees
-        return new ModelAndView("redirect:/");
-    }
+    @PostMapping("/saveBook")
+	public ModelAndView saveBook(@ModelAttribute Book book) {
+		bs.saveBook(book);
+		return new ModelAndView("redirect:/");	
+	}
+
+
 
     @GetMapping("/")
     public ModelAndView home(Model model){
