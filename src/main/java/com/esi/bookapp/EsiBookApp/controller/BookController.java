@@ -66,6 +66,32 @@ public class BookController {
 //        utiliser l'id pour editer le Book selectionner
         return new ModelAndView("create");
     }
+    
+      @PutMapping("/book/{id}")
+    public Book updateBook(@PathVariable("id") int id, @RequestBody Book book) {
+        Optional<Book> b = bookService.getBook(id);
+        if(e.isPresent()) {
+            Book currentBook = e.get();
+
+            String title = book.getTitle();
+            if(title != null) {
+                currentBook.setTitle(title);
+            }
+            String author = book.getAuthor()();
+            if(author != null) {
+                currentBook.setAuthor(author);
+            }
+            int quantity = book.getQuantity();
+            if(quantity != 0) {
+                currentBook.setQuantity(quantity);
+            }
+            bookService.saveBook(currentBook);
+            return currentBook;
+        } else {
+            return null;
+        }
+    }
+
 
     @GetMapping("/delete/{id}")
     public ModelAndView deleteBook(@PathVariable("id") int id){
