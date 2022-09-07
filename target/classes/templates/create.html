@@ -9,7 +9,13 @@
 </head>
 <body>
 
+<<<<<<< HEAD
     <form method="post" th:action="@{/saveBook}" th:object="${book}">
+=======
+    <form method="post"
+        th:action="@{/saveBook}" th:object="${book}"
+        >
+>>>>>>> e9a72feb36900d8fada0efa8c3bf983ffac085d8
 
         <div class="container mt-3">
             <h1 class="text-center bg-dark text-light py-2">Ajouter un nouveau livre</h1>
@@ -31,6 +37,7 @@
     
                     <div class="mb-3">
                         <label for="quantity" class="form-label">Quantity</label>
+<<<<<<< HEAD
                         <input type="number" class="form-control" th:field="*{quantity}" id="quantity">
                     </div>
     
@@ -38,6 +45,17 @@
                 </div>
             </div>
         </div>
+=======
+                        <input type="text" class="form-control" th:field="*{quantity}" id="quantity">
+                    </div>
+    
+                    <div class="btn btn-primary">Ajouter</div>
+                </div>
+            </div>
+        </div>
+
+
+>>>>>>> e9a72feb36900d8fada0efa8c3bf983ffac085d8
     </form>
 </body>
 </html>
