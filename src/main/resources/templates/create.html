@@ -9,9 +9,7 @@
 </head>
 <body>
 
-    <form method="post"
-        th:action="@{/book}" th:object="${book}"
-        >
+    <form method="post" th:action="@{/saveBook}" th:object="${book}">
 
         <div class="container mt-3">
             <h1 class="text-center bg-dark text-light py-2">Ajouter un nouveau livre</h1>
@@ -33,15 +31,13 @@
     
                     <div class="mb-3">
                         <label for="quantity" class="form-label">Quantity</label>
-                        <input type="text" class="form-control" th:field="*{quantity}" id="quantity">
+                        <input type="number" class="form-control" th:field="*{quantity}" id="quantity">
                     </div>
     
-                    <div class="btn btn-primary">Ajouter</div>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
                 </div>
             </div>
         </div>
-
-
     </form>
 </body>
 </html>

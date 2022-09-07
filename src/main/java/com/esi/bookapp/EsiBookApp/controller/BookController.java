@@ -6,9 +6,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -24,12 +22,17 @@ public class BookController {
     @Autowired
     private BookService bs;
 
-	
+    @GetMapping("/create")
+    public ModelAndView createBook(Model model){
+        Book book = new Book();
+        model.addAttribute("book", book);
+        return new ModelAndView("create");
+    }
 
-    @PostMapping("/create")
-    public ModelAndView createBook(@ModelAttribute Book book){
-        bs.saveBook(book);
-//        ajouter le code qu'il faut: recuperer les donnees du formulaire puis cree un Book et le stocker dans la base de donees
+    @PostMapping("/saveBook")
+    public ModelAndView saveBook(@ModelAttribute Book b){
+//        System.out.println(b.toString());
+        bs.saveBook(b);
         return new ModelAndView("redirect:/");
     }
 
@@ -44,10 +47,6 @@ public class BookController {
     public List<Book> getBooks(){
         return bs.getBooks();
     }
-
-  
-
- 
 
     @GetMapping("/edite/{id}")
     public ModelAndView editBook(@PathVariable("id") int id){

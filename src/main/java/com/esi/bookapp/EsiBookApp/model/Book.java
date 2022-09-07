@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "title")
@@ -25,4 +26,12 @@ public class Book {
 
     @Column(name = "quantity")
     private int quantity;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }
