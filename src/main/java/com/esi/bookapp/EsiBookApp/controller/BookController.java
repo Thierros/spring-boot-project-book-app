@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Optional;
 
 /*
  * La couche Controller:  gere les interaction en renvoyant les donnees correspondantes a chaque requete
@@ -54,32 +53,6 @@ public class BookController {
 //        utiliser l'id pour editer le Book selectionner
         return new ModelAndView("create");
     }
-    
-      @PutMapping("/book/{id}")
-    public Book updateBook(@PathVariable("id") int id, @RequestBody Book book) {
-        Optional<Book> b = bs.getBook(id);
-        if(e.isPresent()) {
-            Book currentBook = e.get();
-
-            String title = book.getTitle();
-            if(title != null) {
-                currentBook.setTitle(title);
-            }
-            String author = book.getAuthor();
-            if(author != null) {
-                currentBook.setAuthor(author);
-            }
-            int quantity = book.getQuantity();
-            if(quantity != 0) {
-                currentBook.setQuantity(quantity);
-            }
-            bs.saveBook(currentBook);
-            return currentBook;
-        } else {
-            return null;
-        }
-    }
-
 
     @GetMapping("/delete/{id}")
     public ModelAndView deleteBook(@PathVariable("id") int id){
@@ -87,3 +60,4 @@ public class BookController {
         return new ModelAndView("redirect:/");
     }
 }
+

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /*
-* la couche Service: toute la logic du metier, les differents traitements doivent etre fait ici
-* */
+ * la couche Service: toute la logic du metier, les differents traitements doivent etre fait ici
+ * */
 
 @Service
 public class BookService {
@@ -17,30 +17,20 @@ public class BookService {
     @Autowired
     private BookRepository br;
 
-    
+
 
     public List<Book> getBooks(){
         return br.findAll();
     }
-    
+
     public void deleteBook(int id){
         br.deleteById(id);
     }
 
-  
-
-    /**
-     * @param book
-     * @return
-     */
-    public Book saveBook(Book book) {
-		return book = br.save(book);	
-	}
-
-  public Book saveBook(Book book) {
-        Book savedBook = br.save(book);
-        return savedBook;
+    public void saveBook(Book book) {
+        br.save(book);
     }
+
 
 
 }

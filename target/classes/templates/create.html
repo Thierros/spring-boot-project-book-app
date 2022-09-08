@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,53 +10,35 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-    <form method="post" th:action="@{/saveBook}" th:object="${book}">
-=======
-    <form method="post"
-        th:action="@{/saveBook}" th:object="${book}"
-        >
->>>>>>> e9a72feb36900d8fada0efa8c3bf983ffac085d8
+<form method="post" th:action="@{/saveBook}" th:object="${book}">
 
-        <div class="container mt-3">
-            <h1 class="text-center bg-dark text-light py-2">Ajouter un nouveau livre</h1>
-            <div class="row mt-3">
-                <div class="col sm-6">
-                    <img class="img-fluid" th:attr="src=@{/resources/static/books123.jpg}" alt="">
+    <div class="container mt-3">
+        <h1 class="text-center bg-dark text-light py-2">Ajouter un nouveau livre</h1>
+        <div class="row mt-3">
+            <div class="col sm-6">
+                <img class="img-fluid" th:attr="src=@{/resources/static/books123.jpg}" alt="">
+            </div>
+            <div class="col sm-6 border d-flex flex-column justify-content-center">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" th:field="*{title}" class="form-control" id="title">
                 </div>
-                <div class="col sm-6 border d-flex flex-column justify-content-center">
-    
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" th:field="*{title}" class="form-control" id="title">
-                    </div>
-    
-                    <div class="mb-3">
-                        <label for="author" class="form-label">Author</label>
-                        <input type="text" class="form-control" th:field="*{author}" id="author">
-                    </div>
-    
-                    <div class="mb-3">
-                        <label for="quantity" class="form-label">Quantity</label>
-<<<<<<< HEAD
-                        <input type="number" class="form-control" th:field="*{quantity}" id="quantity">
-                    </div>
-    
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" class="form-control" th:field="*{author}" id="author">
                 </div>
+
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" th:field="*{quantity}" id="quantity">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Ajouter</button>
             </div>
         </div>
-=======
-                        <input type="text" class="form-control" th:field="*{quantity}" id="quantity">
-                    </div>
-    
-                    <div class="btn btn-primary">Ajouter</div>
-                </div>
-            </div>
-        </div>
-
-
->>>>>>> e9a72feb36900d8fada0efa8c3bf983ffac085d8
-    </form>
+    </div>
+</form>
 </body>
 </html>
