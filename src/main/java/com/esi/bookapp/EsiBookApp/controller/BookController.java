@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 /*
  * La couche Controller:  gere les interaction en renvoyant les donnees correspondantes a chaque requete
@@ -32,6 +33,7 @@ public class BookController {
     @PostMapping("/saveBook")
     public ModelAndView saveBook(@ModelAttribute Book b){
 //        System.out.println(b.toString());
+
         bs.saveBook(b);
         return new ModelAndView("redirect:/");
     }
@@ -48,10 +50,34 @@ public class BookController {
         return bs.getBooks();
     }
 
-    @GetMapping("/edite/{id}")
-    public ModelAndView editBook(@PathVariable("id") int id){
+    @GetMapping("/update/{id}")
+    public ModelAndView editBook(@PathVariable("id") int id, Model model){
 //        utiliser l'id pour editer le Book selectionner
-        return new ModelAndView("create");
+        Optional<Book> b = bs.getBook(id);
+        Book book = b.get();
+        model.addAttribute("book", book);
+        return new ModelAndView("update");
+    }
+
+    @PostMapping("/updateBook")
+    public ModelAndView updateBook(@ModelAttribute Book book){
+        Optional<Book> b = bs.getBook(book.getId());
+        Book current = b.get();
+        if (b.isPresent()){
+            Book currentBook = b.get();
+
+            if (book.getTitle() != null){
+                currentBook.setTitle(book.getTitle());
+            }
+            if (book.getAuthor() != null){
+                currentBook.setAuthor(book.getAuthor());
+            }
+            if (String.valueOf(book.getQuantity()) != null){
+                currentBook.setQuantity(book.getQuantity());
+            }
+            bs.saveBook(currentBook);
+        }
+        return new ModelAndView("redirect:/");
     }
 
     @GetMapping("/delete/{id}")

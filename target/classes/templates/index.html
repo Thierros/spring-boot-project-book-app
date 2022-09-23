@@ -32,7 +32,7 @@
                 <td><span th:text="${book.author}"></span></td>
                 <td><span th:text="${book.Quantity}"></span></td>
                 <td>
-                    <a th:href="@{/edite/{id}(id=${book.id})}" class="btn btn-primary">Edite</a>
+                    <a th:href="@{/update/{id}(id=${book.id})}" class="btn btn-primary">Edite</a>
                     <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
